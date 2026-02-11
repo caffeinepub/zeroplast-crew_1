@@ -1,2 +1,3 @@
-# zeroplast-crew_1
-Exported from Caffeine project: Update displayed contact email in Contact section
+## 
+
+To run app build and run docker image: `docker build -t app . docker run -it --network host app`

@@ -1,0 +1,46 @@
+{
+  "kind": "build_request",
+  "title": "Update displayed contact email in Contact section",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "text": "Update only the selected Contact section email text (XPath: /html[1]/body[1]/div[1]/div[1]/main[1]/section[6]/div[1]/div[2]/div[1]/a[1]/span[1]) to display \"info.zeroplast@gmail.com\" instead of the current email shown in the span.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "info.zeroplast@gmail.com"
+        ]
+      },
+      "acceptanceCriteria": [
+        "In the Contact section’s left card (“Email Us”), the visible email text in the span is exactly \"info.zeroplast@gmail.com\".",
+        "No other elements are changed as part of this edit (e.g., do not modify the surrounding card, headings, or other sections)."
+      ]
+    }
+  ],
+  "constraints": [
+    "Apply the change ONLY to the user-selected element at XPath /html[1]/body[1]/div[1]/div[1]/main[1]/section[6]/div[1]/div[2]/div[1]/a[1]/span[1].",
+    "Use English for any user-facing text."
+  ],
+  "nonGoals": [
+    "Do not change the mailto href attribute or any other link targets unless the user selects those elements explicitly in a separate request.",
+    "Do not add backend logic or persistence for contact info."
+  ],
+  "imageRequirements": {
+    "required": [],
+    "edits": []
+  },
+  "userProfileUpdate": {
+    "goalsToAdd": [],
+    "goalsToRemove": [],
+    "preferencesToAdd": [],
+    "preferencesToRemove": [],
+    "miscToAdd": [],
+    "miscToRemove": [],
+    "fieldsToSet": {},
+    "fieldsToDelete": []
+  }
+}

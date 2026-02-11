@@ -1,0 +1,15 @@
+{
+  "frontend/src/index.css": "Global styles with earthy OKLCH color palette (warm greens, kraft tones) for eco-friendly branding, smooth scroll behavior, and custom design tokens for light and dark modes.",
+  "frontend/tailwind.config.js": "Tailwind configuration extended with custom fonts (display serif), earthy color mappings, soft shadows, and fade-in animations to support the sustainable design system.",
+  "frontend/src/App.tsx": "Main application component that renders the complete single-page marketing layout with Header, all content sections (Hero, About, Benefits, Compostability, FAQ, Contact), and Footer.",
+  "frontend/src/components/marketing/Header.tsx": "Fixed header with ZeroPlast Crew logo using the correct static asset path, responsive navigation menu with smooth scroll anchors, mobile hamburger menu, and graceful logo fallback that hides the image on error while preserving brand text alignment.",
+  "frontend/src/components/marketing/sections/HeroSection.tsx": "Hero section featuring the main value proposition, bagasse manufacturing process infographic constrained to medium max width (max-w-md to max-w-lg), eco-friendly badge, and dual CTAs that scroll to Benefits and Contact sections.",
+  "frontend/src/components/marketing/sections/AboutSection.tsx": "About section explaining the bagasse story with three feature cards highlighting farm-to-table process, zero waste philosophy, and family-safe benefits.",
+  "frontend/src/components/marketing/sections/BenefitsSection.tsx": "Benefits section showcasing four key product features (hot/wet food ready, microwave safe, grease resistant, PFAS-free) with icons and a stats highlight panel, now with heading \"Bagasse Products\".",
+  "frontend/src/components/marketing/sections/CompostabilitySection.tsx": "Sustainability section detailing the composting process with three-step breakdown journey, biodegradability timeline, and nutrient-rich soil outcome.",
+  "frontend/src/components/marketing/sections/FAQSection.tsx": "FAQ section with six collapsible questions covering microwave safety, hot/wet food handling, PFAS-free status, composting instructions, paper plate comparison, and outdoor use.",
+  "frontend/src/components/marketing/sections/ContactSection.tsx": "Contact section with email mailto link card displaying \"info.zeroplast@gmail.com\" and informational card about bulk orders and partnerships, encouraging user engagement.",
+  "frontend/src/components/marketing/Footer.tsx": "Footer component displaying logo using the shared logo constant, brand name, copyright notice with caffeine.ai attribution and heart icon, plus tagline about sustainable tableware.",
+  "frontend/src/hooks/useQueries.ts": "Empty placeholder file for React Query hooks; no backend queries needed as this is a static marketing website with no backend functionality.",
+  "frontend/src/components/marketing/logo.ts": "Single source of truth for the ZeroPlast Crew logo path and alt text, ensuring consistent logo usage across header and footer components."
+}

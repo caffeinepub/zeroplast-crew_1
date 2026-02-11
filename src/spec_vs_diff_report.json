@@ -1,0 +1,29 @@
+{
+  "kind": "spec_vs_diff_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-11T07:17:39.455Z",
+  "summary": "REQ-1 appears implemented in ContactSection by setting the visible span text to \"info.zeroplast@gmail.com\" while leaving the mailto href as \"mailto:hello@zeroplastcrew.com\". However, the diff also includes updates to non-requested meta/state files, which were not part of the BuildRequest.",
+  "missing_requirements": [],
+  "hallucinated_features": [
+    {
+      "description": "Updated project tracking/state file (project_state.json) to add/record the request as AR-1 with status pending.",
+      "reason": "The BuildRequest only asked for a frontend text change in a specific span; it did not request changes to project metadata/state files.",
+      "evidence": [
+        "project_state.json"
+      ]
+    },
+    {
+      "description": "Updated/added repository documentation/summary content in frontend-file-summaries.txt (component descriptions).",
+      "reason": "The BuildRequest did not ask to modify documentation or file summary artifacts—only to change the displayed email text in the Contact section.",
+      "evidence": [
+        "frontend-file-summaries.txt"
+      ]
+    }
+  ],
+  "confidence": 0.68,
+  "changed_files": [
+    "frontend-file-summaries.txt",
+    "frontend/src/components/marketing/sections/ContactSection.tsx",
+    "project_state.json"
+  ]
+}

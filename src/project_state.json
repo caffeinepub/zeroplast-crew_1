@@ -1,0 +1,22 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 3,
+  "summary": "New project",
+  "architectural_notes": [],
+  "known_issues": [],
+  "isFixRequest": false,
+  "existing_features": [
+    {
+      "id": "feature-update-only-the-selected-contact-section-email-text-xpath-html-1-body-1-div-1-div-1-main-1-section-6-div-1-div-2-div-1-a-1-span-1-to-display-info-zeroplast-gmail-com-instead-of-the-current-email-shown-in-the-span",
+      "title": "Update only the selected Contact section email text (XPath: /html[1]/body[1]/div[1]/div[1]/main[1]/section[6]/div[1]/div[2]/div[1]/a[1]/span[1]) to display \"info.zeroplast@gmail.com\" instead of the current email shown in the span.",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [],
+  "projectName": "Update displayed contact email in Contact section",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

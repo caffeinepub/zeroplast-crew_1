@@ -1,0 +1,22 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Update Contact section displayed email text",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "summary": "Change the visible email text shown in the Contact section “Email Us” card to info.zeroplast@gmail.com without altering any other surrounding content or the mailto link target.",
+      "acceptanceCriteria": [
+        "In the Contact section’s left card (“Email Us”), the visible email text in the span is exactly \"info.zeroplast@gmail.com\".",
+        "No other elements are changed as part of this edit (e.g., do not modify the surrounding card, headings, or other sections)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/marketing/sections/ContactSection.tsx",
+          "operation": "modify",
+          "description": "Update only the email <span> text inside the “Email Us” card to exactly \"info.zeroplast@gmail.com\" while leaving the existing mailto href attribute unchanged and not modifying any other markup or text."
+        }
+      ]
+    }
+  ]
+}
