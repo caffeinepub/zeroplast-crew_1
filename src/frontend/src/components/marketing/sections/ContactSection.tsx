@@ -16,7 +16,7 @@ export function ContactSection() {
         <div className="max-w-2xl mx-auto">
           <div className="grid sm:grid-cols-2 gap-6">
             <a
-              href="mailto:hello@zeroplastcrew.com"
+              href="mailto:hello.zeroplast@gmail.com"
               className="bg-card rounded-xl p-8 shadow-soft border border-border/50 hover:shadow-medium transition-all hover:border-primary/50 group"
             >
               <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
@@ -29,7 +29,7 @@ export function ContactSection() {
                 Send us an email and we'll get back to you within 24 hours.
               </p>
               <span className="text-primary font-medium">
-                info.zeroplast@gmail.com
+                hello.zeroplast@gmail.com
               </span>
             </a>
 

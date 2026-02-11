@@ -1,7 +1,7 @@
 {
   "kind": "coverage_report",
   "version": "1.0",
-  "generatedAt": "2026-02-11T07:17:39.457Z",
+  "generatedAt": "2026-02-11T11:20:06.334Z",
   "sources": {
     "buildRequest": true,
     "implementationPlan": true
@@ -12,24 +12,27 @@
     "items": [
       {
         "id": "REQ-1",
-        "summary": "Update only the selected Contact section email text (XPath: /html[1]/body[1]/div[1]/div[1]/main[1]/section[6]/div[1]/div[2]/div[1]/a[1]/span[1]) to display \"info.zeroplast@gmail.com\" instead of the current email shown in the span.",
+        "summary": "Update the header logo image element at XPath /html[1]/body[1]/div[1]/div[1]/header[1]/div[1]/div[1]/a[1]/img[1] to use the user-uploaded logo (file_00000000c9f87209a233972db5aad76c-3.png) as its image source, and ensure no other (incorrect) logo assets are used for this header logo.",
         "status": "implemented",
         "plannedFiles": [
-          "frontend/src/components/marketing/sections/ContactSection.tsx"
+          "frontend/public/assets/generated/file_00000000c9f87209a233972db5aad76c-3.png",
+          "frontend/public/assets/generated/header-logo-uploaded-v2.dim_1024x1024.png",
+          "frontend/src/components/marketing/Header.tsx"
         ],
         "matchedFiles": [
-          "frontend/src/components/marketing/sections/ContactSection.tsx"
+          "frontend/public/assets/generated/header-logo-uploaded-v2.dim_1024x1024.png",
+          "frontend/src/components/marketing/Header.tsx"
         ]
       }
     ]
   },
   "changedFiles": [
     "build-request.json",
-    "caffeine.lock.json",
     "feature_evidence.json",
     "frontend-file-summaries.txt",
     "frontend-implementation-plan.json",
-    "frontend/src/components/marketing/sections/ContactSection.tsx",
+    "frontend/public/assets/generated/header-logo-uploaded-v2.dim_1024x1024.png",
+    "frontend/src/components/marketing/Header.tsx",
     "project_state.json",
     "scratch/component-selection.json",
     "spec.md",

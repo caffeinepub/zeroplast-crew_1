@@ -1,46 +1,42 @@
 {
   "kind": "build_request",
-  "title": "Update displayed contact email in Contact section",
+  "title": "Replace header logo with the user-provided uploaded logo",
   "priority": "normal",
   "requirements": [
     {
       "id": "REQ-1",
-      "text": "Update only the selected Contact section email text (XPath: /html[1]/body[1]/div[1]/div[1]/main[1]/section[6]/div[1]/div[2]/div[1]/a[1]/span[1]) to display \"info.zeroplast@gmail.com\" instead of the current email shown in the span.",
+      "text": "Update the header logo image element at XPath /html[1]/body[1]/div[1]/div[1]/header[1]/div[1]/div[1]/a[1]/img[1] to use the user-uploaded logo (file_00000000c9f87209a233972db5aad76c-3.png) as its image source, and ensure no other (incorrect) logo assets are used for this header logo.",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-1"
+          "msg-3"
         ],
         "quotes": [
-          "info.zeroplast@gmail.com"
+          "This is not given by me I gave you another and used another is not a part of my project please this logo"
         ]
       },
       "acceptanceCriteria": [
-        "In the Contact section’s left card (“Email Us”), the visible email text in the span is exactly \"info.zeroplast@gmail.com\".",
-        "No other elements are changed as part of this edit (e.g., do not modify the surrounding card, headings, or other sections)."
+        "The header <img> logo at the specified XPath renders using the newly uploaded image file_00000000c9f87209a233972db5aad76c-3.png (served as a static asset under frontend/public/assets/generated).",
+        "The header no longer references the previously used/incorrect uploaded logo asset.",
+        "The footer logo remains unchanged (continues using frontend/src/components/marketing/logo.ts LOGO_SRC).",
+        "Header logo retains existing sizing (h-12 w-12) and existing error handling behavior (onError hides the image)."
       ]
     }
   ],
   "constraints": [
-    "Apply the change ONLY to the user-selected element at XPath /html[1]/body[1]/div[1]/div[1]/main[1]/section[6]/div[1]/div[2]/div[1]/a[1]/span[1].",
-    "Use English for any user-facing text."
+    "Frontend immutable paths must not be edited: frontend/src/hooks/useInternetIdentity.ts, frontend/src/hooks/useInternetIdentity.tsx, frontend/src/hooks/useActor.ts, frontend/src/main.tsx, frontend/src/components/ui.",
+    "Do not change the footer logo implementation (Footer should continue using LOGO_SRC/LOGO_ALT).",
+    "Backend is single-actor; no backend changes are required for this logo fix."
   ],
   "nonGoals": [
-    "Do not change the mailto href attribute or any other link targets unless the user selects those elements explicitly in a separate request.",
-    "Do not add backend logic or persistence for contact info."
+    "Redesigning the site theme or layout.",
+    "Changing brand name text in the header/footer.",
+    "Adding new backend functionality."
   ],
   "imageRequirements": {
-    "required": [],
+    "required": [
+      "Round eco-themed badge logo with sugarcane stalks, a plate, sunrise, soil and green leaves, and the text 'ZeroPlast Crew' (header-logo-uploaded-v2.dim_1024x1024.png)"
+    ],
     "edits": []
-  },
-  "userProfileUpdate": {
-    "goalsToAdd": [],
-    "goalsToRemove": [],
-    "preferencesToAdd": [],
-    "preferencesToRemove": [],
-    "miscToAdd": [],
-    "miscToRemove": [],
-    "fieldsToSet": {},
-    "fieldsToDelete": []
   }
 }

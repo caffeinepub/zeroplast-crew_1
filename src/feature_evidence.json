@@ -2,10 +2,10 @@
   "kind": "feature_evidence_report",
   "features": [
     {
-      "featureId": "feature-update-only-the-selected-contact-section-email-text-xpath-html-1-body-1-div-1-div-1-main-1-section-6-div-1-div-2-div-1-a-1-span-1-to-display-info-zeroplast-gmail-com-instead-of-the-current-email-shown-in-the-span",
-      "featureTitle": "Update only the selected Contact section email text (XPath: /html[1]/body[1]/div[1]/div[1]/main[1]/section[6]/div[1]/div[2]/div[1]/a[1]/span[1]) to display \"info.zeroplast@gmail.com\" instead of the current email shown in the span.",
+      "featureId": "feature-update-the-header-logo-image-element-at-xpath-html-1-body-1-div-1-div-1-header-1-div-1-div-1-a-1-img-1-to-use-the-user-uploaded-logo-file-00000000c9f87209a233972db5aad76c-3-png-as-its-image-source-and-ensure-no-other-incorrect-logo-assets-are-used-for-this-header-logo",
+      "featureTitle": "Update the header logo image element at XPath /html[1]/body[1]/div[1]/div[1]/header[1]/div[1]/div[1]/a[1]/img[1] to use the user-uploaded logo (file_00000000c9f87209a233972db5aad76c-3.png) as its image source, and ensure no other (incorrect) logo assets are used for this header logo.",
       "files": [
-        "frontend/src/components/marketing/sections/ContactSection.tsx"
+        "frontend/src/components/marketing/Header.tsx"
       ],
       "components": [
         "core-infrastructure@1.0.2",

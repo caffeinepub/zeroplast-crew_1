@@ -39,7 +39,7 @@ export function FAQSection() {
             Frequently Asked Questions
           </h2>
           <p className="text-lg text-muted-foreground">
-            Everything you need to know about our eco-friendly bagasse plates.
+            Everything you need to know about our eco-friendly bagasse products.
           </p>
         </div>
 

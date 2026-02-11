@@ -1,20 +1,32 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Update Contact section displayed email text",
+  "title": "Replace header logo with uploaded asset",
   "requirements": [
     {
       "id": "REQ-1",
-      "summary": "Change the visible email text shown in the Contact section “Email Us” card to info.zeroplast@gmail.com without altering any other surrounding content or the mailto link target.",
+      "summary": "Update the header logo <img> to use the user-uploaded logo file_00000000c9f87209a233972db5aad76c-3.png from static assets and ensure the footer logo remains unchanged.",
       "acceptanceCriteria": [
-        "In the Contact section’s left card (“Email Us”), the visible email text in the span is exactly \"info.zeroplast@gmail.com\".",
-        "No other elements are changed as part of this edit (e.g., do not modify the surrounding card, headings, or other sections)."
+        "The header <img> logo at the specified XPath renders using the newly uploaded image file_00000000c9f87209a233972db5aad76c-3.png (served as a static asset under frontend/public/assets/generated).",
+        "The header no longer references the previously used/incorrect uploaded logo asset.",
+        "The footer logo remains unchanged (continues using frontend/src/components/marketing/logo.ts LOGO_SRC).",
+        "Header logo retains existing sizing (h-12 w-12) and existing error handling behavior (onError hides the image)."
       ],
       "file_operations": [
         {
-          "path": "frontend/src/components/marketing/sections/ContactSection.tsx",
+          "path": "frontend/public/assets/generated/file_00000000c9f87209a233972db5aad76c-3.png",
+          "operation": "create",
+          "description": "Add the user-uploaded header logo as a static asset so it can be referenced directly by the header <img> source."
+        },
+        {
+          "path": "frontend/public/assets/generated/header-logo-uploaded-v2.dim_1024x1024.png",
+          "operation": "create",
+          "description": "Add the required generated image asset (Round eco-themed badge logo...) under the generated assets directory to satisfy imageRequirements; this file must exist at this exact path even if the header ultimately uses file_00000000c9f87209a233972db5aad76c-3.png."
+        },
+        {
+          "path": "frontend/src/components/marketing/Header.tsx",
           "operation": "modify",
-          "description": "Update only the email <span> text inside the “Email Us” card to exactly \"info.zeroplast@gmail.com\" while leaving the existing mailto href attribute unchanged and not modifying any other markup or text."
+          "description": "Change the header logo <img> src to use /assets/generated/file_00000000c9f87209a233972db5aad76c-3.png, ensuring no other logo asset is referenced for the header; keep existing className (h-12 w-12) and onError behavior unchanged."
         }
       ]
     }
