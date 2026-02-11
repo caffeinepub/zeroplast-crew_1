@@ -1,28 +1,49 @@
 {
   "kind": "spec_vs_diff_report",
   "version": "1.0",
-  "generatedAt": "2026-02-11T11:20:06.332Z",
-  "summary": "REQ-1 appears implemented by updating the header <img> to use the specified uploaded logo asset path and preserving the existing sizing and onError behavior. No footer/logo source changes are shown in the diff (Footer not modified).",
-  "missing_requirements": [],
-  "hallucinated_features": [
+  "generatedAt": "2026-02-11T11:26:46.010Z",
+  "summary": "Header and Footer were updated to use shared LOGO_SRC/LOGO_ALT imports and to hide the <img> on load error while keeping brand text visible. However, the diff summary does not provide evidence that the referenced logo asset path actually exists in shipped static assets or that the deployed build will avoid 404s under /assets/generated/.",
+  "missing_requirements": [
     {
-      "description": "Updated/added repository metadata/state tracking not requested (project_state.json updated with a new feature request entry and status).",
-      "reason": "BuildRequest only asks to replace the header logo asset; it does not request project state tracking updates.",
+      "id": "REQ-1",
+      "requirement": "Fix the marketing site logo so it renders reliably in the deployed build (no 404/failed request for the logo asset(s) under /assets/generated/ on initial page load).",
+      "reason": "The changes update components to reference LOGO_SRC but the diff summary contains no evidence of adding/copying the actual logo file into the frontend’s shipped static assets or adjusting build/static asset handling to prevent 404s in production.",
       "evidence": [
-        "project_state.json"
+        "frontend/src/components/marketing/Header.tsx",
+        "frontend/src/components/marketing/Footer.tsx"
       ]
     },
     {
-      "description": "Updated generated documentation/summary file (frontend-file-summaries.txt) describing many components and behaviors beyond the logo swap.",
-      "reason": "BuildRequest does not request changes to documentation/summary artifacts; only the header logo source should change.",
+      "id": "REQ-2",
+      "requirement": "Ensure the referenced logo asset path corresponds to an actual file shipped in the frontend static assets.",
+      "reason": "The diff shows Header/Footer consuming LOGO_SRC, but does not show any change that guarantees the logo file is present in the build output (no added/modified asset file paths are shown, and logo.ts content is not included).",
       "evidence": [
+        "frontend/src/components/marketing/Header.tsx",
+        "frontend/src/components/marketing/Footer.tsx",
         "frontend-file-summaries.txt"
       ]
     }
   ],
-  "confidence": 0.72,
+  "hallucinated_features": [
+    {
+      "description": "Added/changed footer attribution link to caffeine.ai with UTM tracking based on window.location.hostname.",
+      "reason": "BuildRequest is specifically about fixing logo rendering and shared logo source of truth; adding outbound attribution/UTM tracking is unrelated and not requested.",
+      "evidence": [
+        "frontend/src/components/marketing/Footer.tsx"
+      ]
+    },
+    {
+      "description": "Added/changed footer marketing tagline copy about sustainable tableware made from sugarcane bagasse.",
+      "reason": "Non-goals include changing marketing copy unrelated to the logo rendering issue, and the diff shows tagline text in the modified Footer component.",
+      "evidence": [
+        "frontend/src/components/marketing/Footer.tsx"
+      ]
+    }
+  ],
+  "confidence": 0.74,
   "changed_files": [
     "frontend-file-summaries.txt",
+    "frontend/src/components/marketing/Footer.tsx",
     "frontend/src/components/marketing/Header.tsx",
     "project_state.json"
   ]

@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
+import { LOGO_SRC, LOGO_ALT } from './logo';
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -53,8 +54,8 @@ export function Header() {
           <a href="#home" className="flex items-center gap-3" onClick={(e) => handleNavClick(e, '#home')}>
             {!logoError && (
               <img
-                src="/assets/generated/file_00000000c9f87209a233972db5aad76c-3.png"
-                alt="ZeroPlast Crew Logo"
+                src={LOGO_SRC}
+                alt={LOGO_ALT}
                 className="h-12 w-12"
                 onError={handleLogoError}
               />

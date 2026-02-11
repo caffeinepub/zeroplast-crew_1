@@ -1,42 +1,65 @@
 {
   "kind": "build_request",
-  "title": "Replace header logo with the user-provided uploaded logo",
+  "title": "Fix missing marketing logo in header/footer",
   "priority": "normal",
   "requirements": [
     {
       "id": "REQ-1",
-      "text": "Update the header logo image element at XPath /html[1]/body[1]/div[1]/div[1]/header[1]/div[1]/div[1]/a[1]/img[1] to use the user-uploaded logo (file_00000000c9f87209a233972db5aad76c-3.png) as its image source, and ensure no other (incorrect) logo assets are used for this header logo.",
+      "text": "Fix the marketing site logo so it renders reliably in the deployed build, including the header and footer.",
       "target": "frontend",
       "source": {
         "messageIds": [
           "msg-3"
         ],
         "quotes": [
-          "This is not given by me I gave you another and used another is not a part of my project please this logo"
+          "The logo is not appearing"
         ]
       },
       "acceptanceCriteria": [
-        "The header <img> logo at the specified XPath renders using the newly uploaded image file_00000000c9f87209a233972db5aad76c-3.png (served as a static asset under frontend/public/assets/generated).",
-        "The header no longer references the previously used/incorrect uploaded logo asset.",
-        "The footer logo remains unchanged (continues using frontend/src/components/marketing/logo.ts LOGO_SRC).",
-        "Header logo retains existing sizing (h-12 w-12) and existing error handling behavior (onError hides the image)."
+        "When loading the deployed app, the logo image is visible in the header area (left side) without requiring a refresh.",
+        "The footer logo image is visible and matches the header logo.",
+        "The browser DevTools Network tab shows no 404/failed request for the logo image asset(s) under /assets/generated/ on initial page load."
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "text": "Make the header and footer use a single shared logo source of truth (the same exported logo path and alt text), and ensure the referenced logo asset path corresponds to an actual file shipped in the frontend static assets.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-3"
+        ],
+        "quotes": [
+          "The logo is not appearing"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Header.tsx does not hardcode a different logo path than the shared exported logo constant used elsewhere.",
+        "Both header and footer reference the same LOGO_SRC/LOGO_ALT values.",
+        "If the logo file is missing or fails to load, a graceful fallback remains visible (e.g., the brand name text still displays and layout does not collapse)."
       ]
     }
   ],
   "constraints": [
-    "Frontend immutable paths must not be edited: frontend/src/hooks/useInternetIdentity.ts, frontend/src/hooks/useInternetIdentity.tsx, frontend/src/hooks/useActor.ts, frontend/src/main.tsx, frontend/src/components/ui.",
-    "Do not change the footer logo implementation (Footer should continue using LOGO_SRC/LOGO_ALT).",
-    "Backend is single-actor; no backend changes are required for this logo fix."
+    "Do not modify any files under frontend/src/components/ui or other immutablePaths listed in SYSTEM_CONTEXT.",
+    "Backend is a single Motoko actor; do not introduce additional backend services or external storage for static assets."
   ],
   "nonGoals": [
-    "Redesigning the site theme or layout.",
-    "Changing brand name text in the header/footer.",
-    "Adding new backend functionality."
+    "Implementing new authentication or backend functionality.",
+    "Changing marketing copy or adding new site sections unrelated to the logo rendering issue."
   ],
   "imageRequirements": {
-    "required": [
-      "Round eco-themed badge logo with sugarcane stalks, a plate, sunrise, soil and green leaves, and the text 'ZeroPlast Crew' (header-logo-uploaded-v2.dim_1024x1024.png)"
-    ],
+    "required": [],
     "edits": []
+  },
+  "userProfileUpdate": {
+    "goalsToAdd": [],
+    "goalsToRemove": [],
+    "preferencesToAdd": [],
+    "preferencesToRemove": [],
+    "miscToAdd": [],
+    "miscToRemove": [],
+    "fieldsToSet": {},
+    "fieldsToDelete": []
   }
 }

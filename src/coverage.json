@@ -1,27 +1,42 @@
 {
   "kind": "coverage_report",
   "version": "1.0",
-  "generatedAt": "2026-02-11T11:20:06.334Z",
+  "generatedAt": "2026-02-11T11:26:46.013Z",
   "sources": {
     "buildRequest": true,
     "implementationPlan": true
   },
   "requirements": {
-    "total": 1,
-    "implemented": 1,
+    "total": 2,
+    "implemented": 2,
     "items": [
       {
         "id": "REQ-1",
-        "summary": "Update the header logo image element at XPath /html[1]/body[1]/div[1]/div[1]/header[1]/div[1]/div[1]/a[1]/img[1] to use the user-uploaded logo (file_00000000c9f87209a233972db5aad76c-3.png) as its image source, and ensure no other (incorrect) logo assets are used for this header logo.",
+        "summary": "Fix the marketing site logo so it renders reliably in the deployed build, including the header and footer.",
         "status": "implemented",
         "plannedFiles": [
-          "frontend/public/assets/generated/file_00000000c9f87209a233972db5aad76c-3.png",
-          "frontend/public/assets/generated/header-logo-uploaded-v2.dim_1024x1024.png",
-          "frontend/src/components/marketing/Header.tsx"
+          "frontend/src/components/marketing/logo.ts",
+          "frontend/src/components/marketing/Header.tsx",
+          "frontend/src/components/marketing/Footer.tsx",
+          "frontend/public/assets/generated/zeroplast-crew-logo.dim_512x512.png"
         ],
         "matchedFiles": [
-          "frontend/public/assets/generated/header-logo-uploaded-v2.dim_1024x1024.png",
-          "frontend/src/components/marketing/Header.tsx"
+          "frontend/src/components/marketing/Header.tsx",
+          "frontend/src/components/marketing/Footer.tsx"
+        ]
+      },
+      {
+        "id": "REQ-2",
+        "summary": "Make the header and footer use a single shared logo source of truth (the same exported logo path and alt text), and ensure the referenced logo asset path corresponds to an actual file shipped in the frontend static assets.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/marketing/logo.ts",
+          "frontend/src/components/marketing/Header.tsx",
+          "frontend/src/components/marketing/Footer.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/marketing/Header.tsx",
+          "frontend/src/components/marketing/Footer.tsx"
         ]
       }
     ]
@@ -31,7 +46,7 @@
     "feature_evidence.json",
     "frontend-file-summaries.txt",
     "frontend-implementation-plan.json",
-    "frontend/public/assets/generated/header-logo-uploaded-v2.dim_1024x1024.png",
+    "frontend/src/components/marketing/Footer.tsx",
     "frontend/src/components/marketing/Header.tsx",
     "project_state.json",
     "scratch/component-selection.json",

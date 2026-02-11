@@ -1,11 +1,11 @@
 # Specification
 
 ## Summary
-**Goal:** Replace the website header logo with the user-uploaded ZeroPlast Crew logo image.
+**Goal:** Fix the marketing site logo so it reliably renders in the deployed build in both the header and footer.
 
 **Planned changes:**
-- Update the header `<img>` at XPath `/html[1]/body[1]/div[1]/div[1]/header[1]/div[1]/div[1]/a[1]/img[1]` to use `file_00000000c9f87209a233972db5aad76c-3.png` as its image source (served from `frontend/public/assets/generated`).
-- Remove any remaining reference in the header to the previously used/incorrect logo asset.
-- Preserve existing header logo sizing (`h-12 w-12`) and existing `onError` behavior (hide image on load error), and leave the footer logo implementation unchanged.
+- Ensure the logo asset path used by the marketing site points to an actual static file shipped in the frontend build (no missing/incorrect `/assets/generated/` references).
+- Refactor header and footer to use a single shared logo source of truth (shared exported `LOGO_SRC` and `LOGO_ALT`) so both areas always display the same logo.
+- Add a graceful fallback if the logo fails to load (brand name text remains visible and layout does not collapse).
 
-**User-visible outcome:** The header displays the correct user-provided ZeroPlast Crew logo, while the footer logo remains the same as before.
+**User-visible outcome:** On first load of the deployed app, the logo appears consistently in the header and footer without refresh, and no logo-related 404/failed network requests occur.
